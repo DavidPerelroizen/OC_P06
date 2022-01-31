@@ -1,0 +1,15 @@
+{
+  "name": "oc_p06",
+  "version": "1.0.0",
+  "description": "The OCMovies-API project is a REST API application to be executed locally in the context\r of educational projects. It provides movie information from GET http endpoints.\r The API provides these endpoints to get detailed infomation about movies filtered by\r various criteria such as genre, IMDB score or year. Endpoints allow users to retrieve\r information for individual movies or lists of movies.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+  },
+  "author": "",
+  "license": "ISC"
+}
