@@ -3,30 +3,39 @@ header{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    nav{
+        width: 30%;
+        ul{
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+    }    
 }
 
-nav{
-    width: 30%;
-    ul{
-        display: flex;
-        justify-content: space-around;
-        list-style: none;
-    }
-}
 
 body{
     background-color: black;
     color: white;
-}
-
-.Best-movies-container{
-    border: white solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h3{
-        color: white;
-        text-decoration: underline;
+    .main-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+        border: red solid;
+        width: auto;
+        height: auto;
+        .Best-movies-container{
+            border: white solid;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3{
+                color: white;
+                text-decoration: underline;
+            }
+        }
     }
-
 }
+

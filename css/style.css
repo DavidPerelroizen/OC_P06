@@ -4,11 +4,10 @@ header {
   justify-content: space-around;
   align-items: center;
 }
-
-nav {
+header nav {
   width: 30%;
 }
-nav ul {
+header nav ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
@@ -18,14 +17,23 @@ body {
   background-color: black;
   color: white;
 }
-
-.Best-movies-container {
+body .main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  border: red solid;
+  width: auto;
+  height: auto;
+}
+body .main-content .Best-movies-container {
   border: white solid;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.Best-movies-container h3 {
+body .main-content .Best-movies-container h3 {
   color: white;
   text-decoration: underline;
 }
