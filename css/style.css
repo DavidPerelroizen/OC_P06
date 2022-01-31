@@ -1,9 +1,22 @@
 header {
   background-color: red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav {
+  width: 30%;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
 }
 
 body {
   background-color: black;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
