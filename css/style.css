@@ -65,8 +65,8 @@ body .main-content .Best-movies-container .carrousel {
   margin: auto;
 }
 body .main-content .Best-movies-container .carrousel .movie-box {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border: solid rgba(255, 255, 255, 0.5);
   box-shadow: -3px 3px 0 rgba(255, 255, 255, 0.5);
 }
