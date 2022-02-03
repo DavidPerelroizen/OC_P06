@@ -34,11 +34,22 @@ body .main-content .Best-movies-container {
 }
 body .main-content .Best-movies-container h3 {
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
 }
 body .main-content .Best-movies-container .carrousel {
   display: flex;
+  align-items: center;
   margin: auto;
+}
+body .main-content .Best-movies-container .carrousel .movie-box {
+  width: 200px;
+  height: 200px;
+  border: solid rgba(255, 255, 255, 0.5);
+  box-shadow: -3px 3px 0 rgba(255, 255, 255, 0.5);
+}
+body .main-content .Best-movies-container .carrousel .movie-box:hover {
+  box-shadow: -3px 3px white;
+  border: solid white;
 }
 body .main-content .Best-movies-container .carrousel .arrow-right, body .main-content .Best-movies-container .carrousel .arrow-left {
   width: 50px;
@@ -56,7 +67,7 @@ body .main-content .Best-movies-container .carrousel .arrow-right {
 }
 body .main-content .Best-movies-container .carrousel .arrow-right:hover,
 body .main-content .Best-movies-container .carrousel .arrow-left:hover {
-  box-shadow: -2px 2px 0 white;
+  box-shadow: -3px 3px 0 white;
 }
 
 /*# sourceMappingURL=style.css.map */
