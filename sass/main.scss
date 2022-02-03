@@ -27,6 +27,17 @@ body{
         @include main-content-border;
         width: auto;
         height: auto;
+        .separator{
+            height: 30px;
+            width: 100%;
+        }
+        #Best-rated-movie-container{
+            @include best-movie-container;
+            &:hover{
+                @include movie-box-shadow-hover;
+                border: solid 5px $carrousel_border_color_hover;
+            }
+        };
         .Best-movies-container{
             margin: auto;
             display: flex;

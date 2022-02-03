@@ -7,3 +7,13 @@
 @mixin movie-box-shadow-hover {
     box-shadow: -3px 3px $carrousel_border_color_hover;
 }
+
+@mixin best-movie-container{
+    margin: auto;
+    display: flex;
+    border: solid 5px $carrousel_border_color;
+    margin: auto;
+    width: 95%;
+    height: auto;
+    padding: 5px 5px 5px 5px;
+}
