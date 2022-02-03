@@ -1,6 +1,9 @@
 /*BACKGROUNDS COLORS*/
 /*TEXT COLORS*/
 /*BORDERS COLORS*/
+/*BACKGROUNDS COLORS*/
+/*TEXT COLORS*/
+/*BORDERS COLORS*/
 header {
   background-color: red;
   display: flex;
@@ -63,7 +66,7 @@ body .main-content .Best-movies-container .carrousel .arrow-right, body .main-co
   cursor: pointer;
 }
 body .main-content .Best-movies-container .carrousel .arrow-right:hover, body .main-content .Best-movies-container .carrousel .arrow-left:hover {
-  box-shadow: -3px 3px 0 white;
+  box-shadow: -3px 3px white;
 }
 body .main-content .Best-movies-container .carrousel .arrow-left {
   transform: rotate(45deg);

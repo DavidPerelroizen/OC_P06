@@ -1,4 +1,5 @@
 @import "./utils/variables";
+@import "./utils/mixins";
 
 header{
     background-color: $header_background_color;
@@ -23,7 +24,7 @@ body{
         display: flex;
         flex-direction: column;
         align-content: space-around;
-        border: $main_content_border_color solid;
+        @include main-content-border;
         width: auto;
         height: auto;
         .Best-movies-container{
@@ -47,7 +48,7 @@ body{
                     border: solid $carrousel_border_color;
                     box-shadow: -3px 3px 0 $carrousel_border_color;
                     &:hover{
-                        box-shadow: -3px 3px $carrousel_border_color_hover;
+                        @include movie-box-shadow-hover;
                         border: solid $carrousel_border_color_hover;
                     }
                 };
@@ -59,7 +60,7 @@ body{
                     box-shadow: -2px 2px 0 $carrousel_border_color;
                     cursor: pointer;
                     &:hover{
-                        box-shadow: -3px 3px 0 $carrousel_border_color_hover
+                        @include movie-box-shadow-hover;
                     }
                 };
                 .arrow-left{

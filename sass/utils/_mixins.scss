@@ -1,0 +1,9 @@
+@import "./variables";
+
+@mixin main-content-border {
+    border: $main_content_border_color solid;
+}
+
+@mixin movie-box-shadow-hover {
+    box-shadow: -3px 3px $carrousel_border_color_hover;
+}
