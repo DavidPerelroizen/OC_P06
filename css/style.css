@@ -31,6 +31,23 @@ body .main-content {
   width: auto;
   height: auto;
 }
+body .main-content .separator {
+  height: 30px;
+  width: 100%;
+}
+body .main-content #Best-rated-movie-container {
+  margin: auto;
+  display: flex;
+  border: solid 5px rgba(255, 255, 255, 0.5);
+  margin: auto;
+  width: 95%;
+  height: auto;
+  padding: 5px 5px 5px 5px;
+}
+body .main-content #Best-rated-movie-container:hover {
+  box-shadow: -3px 3px white;
+  border: solid 5px white;
+}
 body .main-content .Best-movies-container {
   margin: auto;
   display: flex;

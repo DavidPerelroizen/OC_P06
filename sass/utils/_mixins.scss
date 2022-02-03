@@ -8,7 +8,7 @@
     box-shadow: -3px 3px $carrousel_border_color_hover;
 }
 
-@mixin best-movie-container{
+@mixin best-movie-container {
     margin: auto;
     display: flex;
     border: solid 5px $carrousel_border_color;
