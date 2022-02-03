@@ -20,22 +20,43 @@ body {
 body .main-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-content: space-between;
+  align-content: space-around;
   border: red solid;
   width: auto;
   height: auto;
 }
 body .main-content .Best-movies-container {
-  border: white solid;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5px 5px 5px 5px;
 }
 body .main-content .Best-movies-container h3 {
   color: white;
   text-decoration: underline;
+}
+body .main-content .Best-movies-container .carrousel {
+  display: flex;
+  margin: auto;
+}
+body .main-content .Best-movies-container .carrousel .arrow-right, body .main-content .Best-movies-container .carrousel .arrow-left {
+  width: 50px;
+  height: 50px;
+  transition: 0.5s;
+  float: left;
+  box-shadow: -2px 2px 0 rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+body .main-content .Best-movies-container .carrousel .arrow-left {
+  transform: rotate(45deg);
+}
+body .main-content .Best-movies-container .carrousel .arrow-right {
+  transform: rotate(225deg);
+}
+body .main-content .Best-movies-container .carrousel .arrow-right:hover,
+body .main-content .Best-movies-container .carrousel .arrow-left:hover {
+  box-shadow: -2px 2px 0 white;
 }
 
 /*# sourceMappingURL=style.css.map */
