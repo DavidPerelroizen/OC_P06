@@ -49,13 +49,18 @@ body .main-content #Best-rated-movie-container:hover {
   box-shadow: -3px 3px white;
   border: solid 5px white;
 }
-body .main-content #Best-rated-movie-container:hover #Best-rated-movie-image {
+body .main-content #Best-rated-movie-container #Best-rated-movie-image {
   height: 100%;
   width: 100%;
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.5;
+  border: solid white;
+  display: flex;
+  justify-content: flex-end;
+}
+body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone {
+  background-position: left;
 }
 body .main-content .Best-movies-container {
   margin: auto;

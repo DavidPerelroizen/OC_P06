@@ -36,14 +36,19 @@ body{
             &:hover{
                 @include movie-box-shadow-hover;
                 border: solid 5px $carrousel_border_color_hover;
+            };
             #Best-rated-movie-image{
                 height: 100%;
                 width: 100%;
                 background-position: right;
                 background-repeat: no-repeat;
                 background-size: cover;
-                opacity: 0.5;
-            }
+                border: solid white;
+                display: flex;
+                justify-content: flex-end;
+            };
+            #Best-movie-text-and-button-zone{
+                background-position: left;
             }
         };
         .Best-movies-container{
