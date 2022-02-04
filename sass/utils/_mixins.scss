@@ -11,6 +11,7 @@
 @mixin best-movie-container {
     margin: auto;
     display: flex;
+    flex-direction: row-reverse;
     border: solid 5px $carrousel_border_color;
     margin: auto;
     width: 95%;

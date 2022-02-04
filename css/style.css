@@ -38,6 +38,7 @@ body .main-content .separator {
 body .main-content #Best-rated-movie-container {
   margin: auto;
   display: flex;
+  flex-direction: row-reverse;
   border: solid 5px rgba(255, 255, 255, 0.5);
   margin: auto;
   width: 95%;
@@ -47,6 +48,14 @@ body .main-content #Best-rated-movie-container {
 body .main-content #Best-rated-movie-container:hover {
   box-shadow: -3px 3px white;
   border: solid 5px white;
+}
+body .main-content #Best-rated-movie-container:hover #Best-rated-movie-image {
+  height: 100%;
+  width: 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
 }
 body .main-content .Best-movies-container {
   margin: auto;
