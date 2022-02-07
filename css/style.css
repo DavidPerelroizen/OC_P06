@@ -63,6 +63,7 @@ body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone 
   background-position: left;
 }
 body .main-content .Best-movies-container {
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -75,12 +76,14 @@ body .main-content .Best-movies-container h3 {
 }
 body .main-content .Best-movies-container .carrousel {
   display: flex;
+  width: 100%;
+  justify-content: space-around;
   align-items: center;
   margin: auto;
 }
 body .main-content .Best-movies-container .carrousel .movie-box {
-  width: 300px;
-  height: 300px;
+  width: auto;
+  height: auto;
   border: solid rgba(255, 255, 255, 0.5);
   box-shadow: -3px 3px 0 rgba(255, 255, 255, 0.5);
 }
