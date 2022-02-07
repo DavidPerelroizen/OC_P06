@@ -22,12 +22,12 @@
 @mixin more-info-modal {
     display: none;
     position: fixed;
-    left: 30%;
+    left: 15%;
     top: 30%;
     z-index: 1;
-    width: 50%;
+    width: 70%;
     height: 50%;
     overflow: auto;
     background-color: $body_background_color;
-    border: solid $carrousel_border_color;
+    border: solid 5px $carrousel_border_color;
 }

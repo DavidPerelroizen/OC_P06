@@ -51,7 +51,12 @@ body{
             #Best-movie-text-and-button-zone{
                 background-position: left;
                 .modal{
-                    @include more-info-modal
+                    @include more-info-modal;
+                    #best-movie-modal-content{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
                 }
             }
         };

@@ -66,14 +66,19 @@ body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone 
 body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal {
   display: none;
   position: fixed;
-  left: 30%;
+  left: 15%;
   top: 30%;
   z-index: 1;
-  width: 50%;
+  width: 70%;
   height: 50%;
   overflow: auto;
   background-color: black;
-  border: solid rgba(255, 255, 255, 0.5);
+  border: solid 5px rgba(255, 255, 255, 0.5);
+}
+body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal #best-movie-modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 body .main-content .Best-movies-container {
   width: 100%;
