@@ -16,8 +16,8 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
             var filmData = data;
             document.getElementById("Best-movie-summary").innerHTML = "<p>"+filmData.description+"<\p>";
             document.getElementById("best-movie-modal-image").innerHTML = "<img src="+filmData.image_url+"><\img>";
-            document.getElementById("best-movie-modal-content").innerHTML = `
-            <h2>`+filmData.title+`<\h2>
+            document.getElementById("best-movie-modal-text").innerHTML = `
+            <h2>`+filmData.title+`</h2>
         
             <ul>
                 <li>Genres: `+filmData.genres+`</li>
@@ -30,6 +30,7 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
                 <li>Countries: `+filmData.countries+`</li>
                 <li>Box office results: $`+filmData.worldwide_gross_income+`</li>
                 <li>Summary: `+filmData.long_description+`</li>
+            </ul>
             `
             var moreInfoModal = document.getElementById("More-info-modal");
             var modalButton = document.getElementById("Best-movie-button");
