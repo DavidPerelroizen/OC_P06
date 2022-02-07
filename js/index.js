@@ -97,6 +97,46 @@ fetch("http://localhost:8000/api/v1/titles/?genre=Western&sort_by=-imdb_score")
     })
     })
 
-
+    fetch("http://localhost:8000/api/v1/titles/?genre=Film-Noir&sort_by=-imdb_score")
+    .then(response => {
+        return response.json()
+    .then(data => {
+        var filmNoirList = data;
+        var filmNoirRanking= filmNoirList.results;
+        fetch(filmNoirList.next)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var filmNoirListNext = data;
+            for (film of filmNoirListNext.results) {
+                filmNoirRanking.push(film)
+            };
+            console.log(filmNoirRanking);
+        })
+        .then(data => {
+            for (let i=0; i < 4; i++){
+                document.getElementById("Best-film-noirs-box-"+(i+1)).innerHTML = "<img src="+filmNoirRanking[i].image_url+"><\img>";
+            }
+        })
+        .then(data => {
+            let j = 0;
+            let arrowRight = document.getElementById("Best-film-noirs-arrow-right");
+            let arrowLeft = document.getElementById("Best-film-noirs-arrow-left");
+            arrowRight.addEventListener('click', function(){
+                if(j < 3){j += 1};
+                for (let i = 0; i < 4; i++){
+                    document.getElementById("Best-film-noirs-box-"+(i+1)).innerHTML = "<img src="+filmNoirRanking[i + j].image_url+"><\img>";
+                }
+            });
+            arrowLeft.addEventListener('click', function(){
+                if(j > 0){j -= 1};
+                for (let i = 0; i < 4; i++){
+                    document.getElementById("Best-film-noirs-box-"+(i+1)).innerHTML = "<img src="+filmNoirRanking[i + j].image_url+"><\img>";
+                }
+            });
+        })
+    })
+    })
 
 
