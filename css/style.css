@@ -6,6 +6,7 @@
 /*BORDERS COLORS*/
 header {
   background-color: red;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -27,7 +28,7 @@ body .main-content {
   display: flex;
   flex-direction: column;
   align-content: space-around;
-  border: red solid;
+  border: black solid;
   width: auto;
   height: auto;
 }
@@ -41,7 +42,7 @@ body .main-content #Best-rated-movie-container {
   flex-direction: row-reverse;
   border: solid 5px rgba(255, 255, 255, 0.5);
   margin: auto;
-  width: auto;
+  width: 95%;
   height: auto;
   padding: 5px 5px 5px 5px;
 }
