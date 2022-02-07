@@ -38,14 +38,14 @@ body{
                 border: solid 5px $carrousel_border_color_hover;
             };
             #Best-rated-movie-image{
-                height: 100%;
-                width: 100%;
+                position: relative;
+                z-index: -1;
                 background-position: right;
                 background-repeat: no-repeat;
                 background-size: cover;
-                border: solid white;
                 display: flex;
                 justify-content: flex-end;
+                width: 100%;
             };
             #Best-movie-text-and-button-zone{
                 background-position: left;

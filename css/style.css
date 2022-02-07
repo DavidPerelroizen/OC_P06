@@ -41,7 +41,7 @@ body .main-content #Best-rated-movie-container {
   flex-direction: row-reverse;
   border: solid 5px rgba(255, 255, 255, 0.5);
   margin: auto;
-  width: 95%;
+  width: auto;
   height: auto;
   padding: 5px 5px 5px 5px;
 }
@@ -50,14 +50,14 @@ body .main-content #Best-rated-movie-container:hover {
   border: solid 5px white;
 }
 body .main-content #Best-rated-movie-container #Best-rated-movie-image {
-  height: 100%;
-  width: 100%;
+  position: relative;
+  z-index: -1;
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-  border: solid white;
   display: flex;
   justify-content: flex-end;
+  width: 100%;
 }
 body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone {
   background-position: left;
