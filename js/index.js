@@ -15,6 +15,15 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
         .then(data => {
             var filmData = data;
             document.getElementById("Best-movie-summary").innerHTML = "<p>"+filmData.description+"<\p>";
+            var moreInfoModal = document.getElementById("More-info-modal");
+            var modalButton = document.getElementById("Best-movie-button");
+            var span = document.getElementsByClassName("close")[0];
+            modalButton.onclick = function(){
+                moreInfoModal.style.display = "block";
+            }
+            span.onclick = function(){
+                moreInfoModal.style.display = "none";
+            }
         })
         .then(data => {
             fetch(filmList.next)

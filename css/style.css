@@ -63,6 +63,18 @@ body .main-content #Best-rated-movie-container #Best-rated-movie-image {
 body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone {
   background-position: left;
 }
+body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal {
+  display: none;
+  position: fixed;
+  left: 30%;
+  top: 30%;
+  z-index: 1;
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  background-color: black;
+  border: solid black;
+}
 body .main-content .Best-movies-container {
   width: 100%;
   margin: auto;
