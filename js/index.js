@@ -36,6 +36,23 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
                     document.getElementById("Best-movie-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
                 }
             })
+            .then(data => {
+                let j = 0;
+                let arrowRight = document.getElementById("Best-movies-arrow-right");
+                let arrowLeft = document.getElementById("Best-movies-arrow-left");
+                arrowRight.addEventListener('click', function(){
+                    if(j < 3){j += 1};
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Best-movie-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                    }
+                });
+                arrowLeft.addEventListener('click', function(){
+                    if(j > 0){j -= 1};
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Best-movie-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                    }
+                });
+            })
         })
     })
 
