@@ -73,7 +73,7 @@ body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone 
   height: 50%;
   overflow: auto;
   background-color: black;
-  border: solid black;
+  border: solid rgba(255, 255, 255, 0.5);
 }
 body .main-content .Best-movies-container {
   width: 100%;

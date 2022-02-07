@@ -15,6 +15,22 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
         .then(data => {
             var filmData = data;
             document.getElementById("Best-movie-summary").innerHTML = "<p>"+filmData.description+"<\p>";
+            document.getElementById("best-movie-modal-image").innerHTML = "<img src="+filmData.image_url+"><\img>";
+            document.getElementById("best-movie-modal-content").innerHTML = `
+            <h2>`+filmData.title+`<\h2>
+        
+            <ul>
+                <li>Genres: `+filmData.genres+`</li>
+                <li>Release date: `+filmData.date_published+`</li>
+                <li>Rated: `+filmData.rated+`</li>
+                <li>Imdb_score: `+filmData.imdb_score+`</li>
+                <li>Directed by: `+filmData.director+`</li>
+                <li>Actors: `+filmData.actors+`</li>
+                <li>Duration: `+filmData.duration+` minutes</li>
+                <li>Countries: `+filmData.countries+`</li>
+                <li>Box office results: $`+filmData.worldwide_gross_income+`</li>
+                <li>Summary: `+filmData.long_description+`</li>
+            `
             var moreInfoModal = document.getElementById("More-info-modal");
             var modalButton = document.getElementById("Best-movie-button");
             var span = document.getElementsByClassName("close")[0];
