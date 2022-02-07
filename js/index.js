@@ -5,7 +5,6 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
     })
     .then(data => {
         var filmList = data;
-        console.log(filmList);
         document.getElementById("Best-movie-title").innerHTML = "<h1>"+filmList.results['0'].title+"<\h1>";
         document.getElementById("Best-rated-movie-image").innerHTML = "<img src="+filmList.results['0'].image_url+"><\img>";
         var filmRanking = filmList.results;
@@ -15,7 +14,6 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
         })
         .then(data => {
             var filmData = data;
-            console.log(filmData);
             document.getElementById("Best-movie-summary").innerHTML = "<p>"+filmData.description+"<\p>";
         })
         .then(data => {
@@ -27,9 +25,7 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
                 var filmListNext = data;
                 for (film of filmListNext.results) {
                     filmRanking.push(film)
-                };
-                console.log(filmRanking)
-                
+                };                
             })
             .then(data => {
                 for (let i=0; i < 4; i++){
@@ -112,7 +108,6 @@ fetch("http://localhost:8000/api/v1/titles/?genre=Western&sort_by=-imdb_score")
             for (film of filmNoirListNext.results) {
                 filmNoirRanking.push(film)
             };
-            console.log(filmNoirRanking);
         })
         .then(data => {
             for (let i=0; i < 4; i++){
@@ -139,4 +134,76 @@ fetch("http://localhost:8000/api/v1/titles/?genre=Western&sort_by=-imdb_score")
     })
     })
 
+    fetch("http://localhost:8000/api/v1/titles/?genre=Documentary&sort_by=-imdb_score")
+    .then(response => {
+        return response.json()
+    .then(data => {
+        var documentaryList = data;
+        var documentaryRanking= documentaryList.results;
+        console.log(documentaryRanking);
+        if (documentaryList.next == null){
+            if (documentaryRanking.length >= 4){
+                for (let i=0; i < 4; i++){
+                    document.getElementById("Best-documentaries-box-"+(i+1)).innerHTML = "<img src="+documentaryRanking[i].image_url+"><\img>";
+                }
+            }else{
+                for (let i=0; i < documentaryRanking.length; i++){
+                    document.getElementById("Best-documentaries-box-"+(i+1)).innerHTML = "<img src="+documentaryRanking[i].image_url+"><\img>";
+                }
+            };
+            let j = 0;
+            let arrowRight = document.getElementById("Best-documentaries-arrow-right");
+            let arrowLeft = document.getElementById("Best-documentaries-arrow-left");
+            arrowRight.addEventListener('click', function(){
+                if(j < 3){j += 1};
+                if (documentaryRanking.length >= 4){
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Best-documentaries-box-"+(i+1)).innerHTML = "<img src="+documentaryRanking[i + j].image_url+"><\img>";
+                    }
+                }
+            });
+            arrowLeft.addEventListener('click', function(){
+                if(j > 0){j -= 1};
+                if (documentaryRanking.length >= 4){
+                    for (let i = 0; i < 4; i++){
+                    document.getElementById("Best-documentaries-box-"+(i+1)).innerHTML = "<img src="+documentaryRanking[i + j].image_url+"><\img>";
+                    }
+                }
+            })
+        }else{
+            fetch(documentaryList.next)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                var documentaryListNext = data;
+                for (film of documentaryListNext.results) {
+                    documentaryRanking.push(film)
+                };
+            })
+            .then(data => {
+                for (let i=0; i < 4; i++){
+                    document.getElementById("Best-documentaries-box-"+(i+1)).innerHTML = "<img src="+documentaryRanking[i].image_url+"><\img>";
+                }
+            })
+            .then(data => {
+                let j = 0;
+                let arrowRight = document.getElementById("Best-documentaries-arrow-right");
+                let arrowLeft = document.getElementById("Best-documentaries-arrow-left");
+                arrowRight.addEventListener('click', function(){
+                    if(j < 3){j += 1};
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Best-documentaries-box-"+(i+1)).innerHTML = "<img src="+documentaryRanking[i + j].image_url+"><\img>";
+                    }
+                });
+                arrowLeft.addEventListener('click', function(){
+                    if(j > 0){j -= 1};
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Best-documentaries-box-"+(i+1)).innerHTML = "<img src="+documentaryRanking[i + j].image_url+"><\img>";
+                    }
+                });
+            })
+        }
+    }
 
+    )})
