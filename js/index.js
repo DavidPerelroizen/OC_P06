@@ -77,6 +77,82 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
         })
     })
 
+function carrouselManager(url, categoryIndex){
+    fetch(url)
+    .then(response => {
+        return response.json()
+    .then(data => {
+        var filmList = data;
+        var filmRanking= filmList.results;
+        if (filmList.next == null){
+            if (filmRanking.length >= 4){
+                for (let i=0; i < 4; i++){
+                    document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
+                }
+            }else{
+                for (let i=0; i < filmRanking.length; i++){
+                    document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
+                }
+            };
+            let j = 0;
+            let arrowRight = document.getElementById("Category-"+categoryIndex+"-arrow-right");
+            let arrowLeft = document.getElementById("Category-"+categoryIndex+"-arrow-left");
+            arrowRight.addEventListener('click', function(){
+                if(j < 3){j += 1};
+                if (filmRanking.length >= 4){
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                    }
+                }
+            });
+            arrowLeft.addEventListener('click', function(){
+                if(j > 0){j -= 1};
+                if (filmRanking.length >= 4){
+                    for (let i = 0; i < 4; i++){
+                    document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                    }
+                }
+            })
+        }else{
+            fetch(filmList.next)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                var filmListNext = data;
+                for (film of filmListNext.results) {
+                    filmRanking.push(film)
+                };
+            })
+            .then(data => {
+                for (let i=0; i < 4; i++){
+                    document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
+                }
+            })
+            .then(data => {
+                let j = 0;
+                let arrowRight = document.getElementById("Category-"+categoryIndex+"-arrow-right");
+                let arrowLeft = document.getElementById("Category-"+categoryIndex+"-arrow-left");
+                arrowRight.addEventListener('click', function(){
+                    if(j < 3){j += 1};
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                    }
+                });
+                arrowLeft.addEventListener('click', function(){
+                    if(j > 0){j -= 1};
+                    for (let i = 0; i < 4; i++){
+                        document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                    }
+                });
+            })
+        }
+    }
+
+    )})
+
+}
+
 fetch("http://localhost:8000/api/v1/titles/?genre=Western&sort_by=-imdb_score")
     .then(response => {
         return response.json()
