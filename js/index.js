@@ -24,7 +24,7 @@ function modalManagement(url, categoryIndex, modalIndex){
         `
         var moreInfoModal = document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex);
         var modalButton = document.getElementById("Category-"+categoryIndex+"-box-"+modalIndex);
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex+"-close")[0];
         modalButton.onclick = function(){
             moreInfoModal.style.display = "block";
         };
@@ -162,10 +162,10 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
             `
             var moreInfoModal = document.getElementById("More-info-modal");
             var modalButton = document.getElementById("Best-movie-button");
-            var span = document.getElementsByClassName("close")[0];
+            var span = document.getElementById("best-movie-close")[0];
             modalButton.onclick = function(){
                 moreInfoModal.style.display = "block";
-            }
+            };
             span.onclick = function(){
                 moreInfoModal.style.display = "none";
             }
