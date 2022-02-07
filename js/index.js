@@ -1,3 +1,41 @@
+function modalManagement(url, categoryIndex, modalIndex){
+    fetch(url)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var filmData = data;
+        document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex+"-image").innerHTML = "<img src="+filmData.image_url+"><\img>";
+        document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex+"-text").innerHTML = `
+        <h2>`+filmData.title+`</h2>
+
+        <ul>
+            <li>Genres: `+filmData.genres+`</li>
+            <li>Release date: `+filmData.date_published+`</li>
+            <li>Rated: `+filmData.rated+`</li>
+            <li>Imdb_score: `+filmData.imdb_score+`</li>
+            <li>Directed by: `+filmData.director+`</li>
+            <li>Actors: `+filmData.actors+`</li>
+            <li>Duration: `+filmData.duration+` minutes</li>
+            <li>Countries: `+filmData.countries+`</li>
+            <li>Box office results: $`+filmData.worldwide_gross_income+`</li>
+            <li>Summary: `+filmData.long_description+`</li>
+        </ul>
+        `
+        var moreInfoModal = document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex);
+        var modalButton = document.getElementById("Category-"+categoryIndex+"-box-"+modalIndex);
+        var span = document.getElementsByClassName("close")[0];
+        modalButton.onclick = function(){
+            moreInfoModal.style.display = "block";
+        };
+        span.onclick = function(){
+            moreInfoModal.style.display = "none";
+        }
+    })
+}
+
+
+
 function carrouselManager(url, categoryIndex){
     fetch(url)
     .then(response => {
@@ -9,10 +47,12 @@ function carrouselManager(url, categoryIndex){
             if (filmRanking.length >= 4){
                 for (let i=0; i < 4; i++){
                     document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
+                    modalManagement(filmRanking[i].url, categoryIndex, i+1); 
                 }
             }else{
                 for (let i=0; i < filmRanking.length; i++){
                     document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
+                    modalManagement(filmRanking[i].url, categoryIndex, i+1); 
                 }
             };
             let j = 0;
@@ -23,6 +63,7 @@ function carrouselManager(url, categoryIndex){
                 if (filmRanking.length >= 4){
                     for (let i = 0; i < 4; i++){
                         document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                        modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
                     }
                 }
             });
@@ -31,6 +72,7 @@ function carrouselManager(url, categoryIndex){
                 if (filmRanking.length >= 4){
                     for (let i = 0; i < 4; i++){
                     document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                    modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
                     }
                 }
             })
@@ -48,6 +90,7 @@ function carrouselManager(url, categoryIndex){
             .then(data => {
                 for (let i=0; i < 4; i++){
                     document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
+                    modalManagement(filmRanking[i].url, categoryIndex, i+1); 
                 }
             })
             .then(data => {
@@ -58,12 +101,14 @@ function carrouselManager(url, categoryIndex){
                     if(j < 3){j += 1};
                     for (let i = 0; i < 4; i++){
                         document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                        modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
                     }
                 });
                 arrowLeft.addEventListener('click', function(){
                     if(j > 0){j -= 1};
                     for (let i = 0; i < 4; i++){
                         document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                        modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
                     }
                 });
             })
@@ -74,34 +119,7 @@ function carrouselManager(url, categoryIndex){
 
 }
 
-function modalManagement(filmData){
-    document.getElementById("best-movie-modal-image").innerHTML = "<img src="+filmData.image_url+"><\img>";
-    document.getElementById("best-movie-modal-text").innerHTML = `
-    <h2>`+filmData.title+`</h2>
 
-    <ul>
-        <li>Genres: `+filmData.genres+`</li>
-        <li>Release date: `+filmData.date_published+`</li>
-        <li>Rated: `+filmData.rated+`</li>
-        <li>Imdb_score: `+filmData.imdb_score+`</li>
-        <li>Directed by: `+filmData.director+`</li>
-        <li>Actors: `+filmData.actors+`</li>
-        <li>Duration: `+filmData.duration+` minutes</li>
-        <li>Countries: `+filmData.countries+`</li>
-        <li>Box office results: $`+filmData.worldwide_gross_income+`</li>
-        <li>Summary: `+filmData.long_description+`</li>
-    </ul>
-    `
-    var moreInfoModal = document.getElementById("More-info-modal");
-    var modalButton = document.getElementById("Best-movie-button");
-    var span = document.getElementsByClassName("close")[0];
-    modalButton.onclick = function(){
-        moreInfoModal.style.display = "block";
-    };
-    span.onclick = function(){
-        moreInfoModal.style.display = "none";
-    }
-}
 
 
 

@@ -67,6 +67,14 @@ body{
             flex-direction: column;
             align-items: center;
             padding: 5px 5px 5px 5px;
+            .modal{
+                @include more-info-modal;
+                .Category-modal-content{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;  
+                }
+            }
             h3{
                 color: $h3_text_color;
                 text-decoration: none;         

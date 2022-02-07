@@ -88,6 +88,23 @@ body .main-content .Best-movies-container {
   align-items: center;
   padding: 5px 5px 5px 5px;
 }
+body .main-content .Best-movies-container .modal {
+  display: none;
+  position: fixed;
+  left: 15%;
+  top: 30%;
+  z-index: 1;
+  width: 70%;
+  height: 50%;
+  overflow: auto;
+  background-color: black;
+  border: solid 5px rgba(255, 255, 255, 0.5);
+}
+body .main-content .Best-movies-container .modal .Category-modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 body .main-content .Best-movies-container h3 {
   color: white;
   text-decoration: none;
