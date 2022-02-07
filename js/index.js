@@ -56,5 +56,47 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
         })
     })
 
+fetch("http://localhost:8000/api/v1/titles/?genre=Western&sort_by=-imdb_score")
+    .then(response => {
+        return response.json()
+    .then(data => {
+        var westernsList = data;
+        var westernsRanking= westernsList.results;
+        fetch(westernsList.next)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var westernListNext = data;
+            for (film of westernListNext.results) {
+                westernsRanking.push(film)
+            };
+        })
+        .then(data => {
+            for (let i=0; i < 4; i++){
+                document.getElementById("Best-westerns-box-"+(i+1)).innerHTML = "<img src="+westernsRanking[i].image_url+"><\img>";
+            }
+        })
+        .then(data => {
+            let j = 0;
+            let arrowRight = document.getElementById("Best-westerns-arrow-right");
+            let arrowLeft = document.getElementById("Best-westerns-arrow-left");
+            arrowRight.addEventListener('click', function(){
+                if(j < 3){j += 1};
+                for (let i = 0; i < 4; i++){
+                    document.getElementById("Best-westerns-box-"+(i+1)).innerHTML = "<img src="+westernsRanking[i + j].image_url+"><\img>";
+                }
+            });
+            arrowLeft.addEventListener('click', function(){
+                if(j > 0){j -= 1};
+                for (let i = 0; i < 4; i++){
+                    document.getElementById("Best-westerns-box-"+(i+1)).innerHTML = "<img src="+westernsRanking[i + j].image_url+"><\img>";
+                }
+            });
+        })
+    })
+    })
+
+
 
 
