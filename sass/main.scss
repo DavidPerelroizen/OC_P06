@@ -51,16 +51,7 @@ body{
             #Best-movie-text-and-button-zone{
                 background-position: left;
                 .modal{
-                    display: none;
-                    position: fixed;
-                    left: 30%;
-                    top: 30%;
-                    z-index: 1;
-                    width: 50%;
-                    height: 50%;
-                    overflow: auto;
-                    background-color: $body_background_color;
-                    border: solid $main_content_border_color;
+                    @include more-info-modal
                 }
             }
         };
