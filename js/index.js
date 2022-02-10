@@ -43,7 +43,17 @@ function carrouselManager(url, categoryIndex){
     .then(data => {
         var filmList = data;
         var filmRanking= filmList.results;
-        if (filmList.next == null){
+        fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var allfilmList = data;
+            if(filmRanking[0].id == allfilmList.results[0].id){
+                filmRanking.shift()
+            }
+            })
+        .then(data => {if (filmList.next == null){
             if (filmRanking.length >= 4){
                 for (let i=0; i < 4; i++){
                     document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
@@ -76,46 +86,46 @@ function carrouselManager(url, categoryIndex){
                     }
                 }
             })
-        }else{
-            fetch(filmList.next)
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                var filmListNext = data;
-                for (film of filmListNext.results) {
-                    filmRanking.push(film)
-                };
-            })
-            .then(data => {
-                for (let i=0; i < 4; i++){
-                    document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
-                    modalManagement(filmRanking[i].url, categoryIndex, i+1); 
-                }
-            })
-            .then(data => {
-                let j = 0;
-                let arrowRight = document.getElementById("Category-"+categoryIndex+"-arrow-right");
-                let arrowLeft = document.getElementById("Category-"+categoryIndex+"-arrow-left");
-                arrowRight.addEventListener('click', function(){
-                    if(j < 3){j += 1};
-                    for (let i = 0; i < 4; i++){
-                        document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
-                        modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
+            }else{
+                fetch(filmList.next)
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    var filmListNext = data;
+                    for (film of filmListNext.results) {
+                        filmRanking.push(film)
+                    };
+                })
+                .then(data => {
+                    for (let i=0; i < 4; i++){
+                        document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
+                        modalManagement(filmRanking[i].url, categoryIndex, i+1); 
                     }
-                });
-                arrowLeft.addEventListener('click', function(){
-                    if(j > 0){j -= 1};
-                    for (let i = 0; i < 4; i++){
-                        document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
-                        modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
-                    }
+                })
+                .then(data => {
+                    let j = 0;
+                    let arrowRight = document.getElementById("Category-"+categoryIndex+"-arrow-right");
+                    let arrowLeft = document.getElementById("Category-"+categoryIndex+"-arrow-left");
+                    arrowRight.addEventListener('click', function(){
+                        if(j < 3){j += 1};
+                        for (let i = 0; i < 4; i++){
+                            document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                            modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
+                        }
+                    });
+                    arrowLeft.addEventListener('click', function(){
+                        if(j > 0){j -= 1};
+                        for (let i = 0; i < 4; i++){
+                            document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i + j].image_url+"><\img>";
+                            modalManagement(filmRanking[i + j].url, categoryIndex, i+1); 
+                        }
                 });
             })
         }
-    }
-
-    )})
+    })
+})
+})
 
 }
 
@@ -175,6 +185,6 @@ fetch("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
 
 
 carrouselManager("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score", 1)
-carrouselManager("http://localhost:8000/api/v1/titles/?genre=Western&sort_by=-imdb_score", 2)
+carrouselManager("http://localhost:8000/api/v1/titles/?genre=Drama&sort_by=-imdb_score", 2)
 carrouselManager("http://localhost:8000/api/v1/titles/?genre=Film-Noir&sort_by=-imdb_score", 3)
 carrouselManager("http://localhost:8000/api/v1/titles/?genre=Documentary&sort_by=-imdb_score", 4)
