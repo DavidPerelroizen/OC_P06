@@ -14,6 +14,10 @@ header {
 header nav {
   width: 30%;
 }
+header nav button p {
+  font-weight: bolder;
+  font-size: larger;
+}
 header nav ul {
   display: flex;
   justify-content: space-around;
@@ -26,6 +30,10 @@ body {
 }
 body button:hover {
   cursor: pointer;
+}
+body button p {
+  font-weight: bolder;
+  font-size: larger;
 }
 body .main-content {
   display: flex;

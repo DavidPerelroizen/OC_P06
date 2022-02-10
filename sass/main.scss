@@ -9,6 +9,9 @@ header{
     align-items: center;
     nav{
         width: 30%;
+        button p{
+            @include button-p
+        }
         ul{
             display: flex;
             justify-content: space-around;
@@ -24,6 +27,9 @@ body{
     };
     background-color: $body_background_color;
     color: $body_text_color;
+    button p{
+        @include button-p
+    }
     .main-content{
         display: flex;
         flex-direction: column;
