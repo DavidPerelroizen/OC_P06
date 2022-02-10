@@ -97,6 +97,9 @@ body{
                 justify-content: space-around;
                 align-items: center;
                 margin: auto;
+                @media (max-width: 599px) {
+                    flex-wrap: wrap;
+                };
                 .movie-box{
                     width: auto;
                     height: auto;

@@ -17,6 +17,9 @@
     width: 95%;
     height: auto;
     padding: 5px 5px 5px 5px;
+    @media (max-width: 599px) {
+        flex-direction: column-reverse;
+    }
 }
 
 @mixin best-movies-container {
