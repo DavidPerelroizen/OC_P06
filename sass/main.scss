@@ -9,8 +9,8 @@ header{
     align-items: center;
     nav{
         width: 30%;
-        button p{
-            @include button-p
+        button {
+            @include button-text
         }
         ul{
             display: flex;
@@ -27,8 +27,8 @@ body{
     };
     background-color: $body_background_color;
     color: $body_text_color;
-    button p{
-        @include button-p
+    button{
+        @include button-text
     }
     .main-content{
         display: flex;

@@ -53,7 +53,8 @@
     height: 30px;
 }
 
-@mixin button-p{
+@mixin button-text{
     font-weight: bolder;
     font-size: larger;
+    height: 40px;
 }

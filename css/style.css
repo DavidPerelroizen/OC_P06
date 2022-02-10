@@ -14,9 +14,10 @@ header {
 header nav {
   width: 30%;
 }
-header nav button p {
+header nav button {
   font-weight: bolder;
   font-size: larger;
+  height: 40px;
 }
 header nav ul {
   display: flex;
@@ -31,9 +32,10 @@ body {
 body button:hover {
   cursor: pointer;
 }
-body button p {
+body button {
   font-weight: bolder;
   font-size: larger;
+  height: 40px;
 }
 body .main-content {
   display: flex;
