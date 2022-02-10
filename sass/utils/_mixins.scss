@@ -19,6 +19,15 @@
     padding: 5px 5px 5px 5px;
 }
 
+@mixin best-movies-container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 5px 5px 5px;
+}
+
 @mixin more-info-modal {
     display: none;
     position: fixed;
@@ -30,4 +39,12 @@
     overflow: auto;
     background-color: $body_background_color;
     border: solid 5px $carrousel_border_color;
+}
+
+@mixin modal-close {
+    cursor: pointer;
+    font-size: larger;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
 }

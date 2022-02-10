@@ -24,6 +24,9 @@ body {
   background-color: black;
   color: white;
 }
+body button:hover {
+  cursor: pointer;
+}
 body .main-content {
   display: flex;
   flex-direction: column;
@@ -75,6 +78,17 @@ body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone 
   background-color: black;
   border: solid 5px rgba(255, 255, 255, 0.5);
 }
+body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal .close {
+  cursor: pointer;
+  font-size: larger;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+}
+body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal .close:hover {
+  background-color: red;
+  font-weight: bolder;
+}
 body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal #best-movie-modal-content {
   display: flex;
   align-items: center;
@@ -99,6 +113,17 @@ body .main-content .Best-movies-container .modal {
   overflow: auto;
   background-color: black;
   border: solid 5px rgba(255, 255, 255, 0.5);
+}
+body .main-content .Best-movies-container .modal .close {
+  cursor: pointer;
+  font-size: larger;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+}
+body .main-content .Best-movies-container .modal .close:hover {
+  background-color: red;
+  font-weight: bolder;
 }
 body .main-content .Best-movies-container .modal .Category-modal-content {
   display: flex;
@@ -125,6 +150,7 @@ body .main-content .Best-movies-container .carrousel .movie-box {
 body .main-content .Best-movies-container .carrousel .movie-box:hover {
   box-shadow: -3px 3px white;
   border: solid white;
+  cursor: pointer;
 }
 body .main-content .Best-movies-container .carrousel .arrow-right, body .main-content .Best-movies-container .carrousel .arrow-left {
   width: 50px;

@@ -19,6 +19,9 @@ header{
 
 
 body{
+    button:hover{
+        cursor: pointer;
+    };
     background-color: $body_background_color;
     color: $body_text_color;
     .main-content{
@@ -52,6 +55,13 @@ body{
                 background-position: left;
                 .modal{
                     @include more-info-modal;
+                    .close{
+                        @include modal-close;
+                        &:hover{
+                            background-color: red;
+                            font-weight: bolder;
+                        }
+                    }
                     #best-movie-modal-content{
                         display: flex;
                         align-items: center;
@@ -61,14 +71,16 @@ body{
             }
         };
         .Best-movies-container{
-            width: 100%;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 5px 5px 5px 5px;
+            @include best-movies-container;
             .modal{
                 @include more-info-modal;
+                .close{
+                    @include modal-close;
+                    &:hover{
+                        background-color: red;
+                        font-weight: bolder;
+                    }
+                }
                 .Category-modal-content{
                     display: flex;
                     align-items: center;
@@ -93,6 +105,7 @@ body{
                     &:hover{
                         @include movie-box-shadow-hover;
                         border: solid $carrousel_border_color_hover;
+                        cursor: pointer;
                     }
                 };
                 .arrow-right, .arrow-left{
