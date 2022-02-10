@@ -17,6 +17,7 @@
     width: 95%;
     height: auto;
     padding: 5px 5px 5px 5px;
+    overflow:hidden;
     @media (max-width: 599px) {
         flex-direction: column-reverse;
     }
@@ -46,8 +47,8 @@
 
 @mixin modal-close {
     cursor: pointer;
-    font-size: larger;
+    font-size: xx-large;
     font-weight: bold;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }

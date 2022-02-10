@@ -48,6 +48,7 @@ body .main-content #Best-rated-movie-container {
   width: 95%;
   height: auto;
   padding: 5px 5px 5px 5px;
+  overflow: hidden;
 }
 @media (max-width: 599px) {
   body .main-content #Best-rated-movie-container {
@@ -65,8 +66,12 @@ body .main-content #Best-rated-movie-container #Best-rated-movie-image {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 100%;
+}
+body .main-content #Best-rated-movie-container #Best-rated-movie-image img {
+  height: 100%;
+  width: 30%;
 }
 body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone {
   background-position: left;
@@ -85,10 +90,10 @@ body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone 
 }
 body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal .close {
   cursor: pointer;
-  font-size: larger;
+  font-size: xx-large;
   font-weight: bold;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 body .main-content #Best-rated-movie-container #Best-movie-text-and-button-zone .modal .close:hover {
   background-color: red;
@@ -121,10 +126,10 @@ body .main-content .Best-movies-container .modal {
 }
 body .main-content .Best-movies-container .modal .close {
   cursor: pointer;
-  font-size: larger;
+  font-size: xx-large;
   font-weight: bold;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 body .main-content .Best-movies-container .modal .close:hover {
   background-color: red;
