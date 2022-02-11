@@ -49,17 +49,9 @@ body{
             };
             #Best-rated-movie-image{
                 position: relative;
-                z-index: -1;
-                background-position: right;
-                background-repeat: no-repeat;
-                background-size: cover;
                 display: flex;
                 justify-content: flex-start;
                 width: 100%;
-                img{
-                    height: 100%;
-                    width: 30%;
-                }
             };
             #Best-movie-text-and-button-zone{
                 background-position: left;

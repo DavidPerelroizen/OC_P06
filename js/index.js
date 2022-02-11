@@ -5,7 +5,7 @@ function modalManagement(url, categoryIndex, modalIndex){
         })
         .then(data => {
             var filmData = data;
-        document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex+"-image").innerHTML = "<img src="+filmData.image_url+"><\img>";
+        document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex+"-image").innerHTML = "<img src="+filmData.image_url+">";
         document.getElementById("Category-"+categoryIndex+"-modal-"+modalIndex+"-text").innerHTML = `
         <h2>`+filmData.title+`</h2>
 
