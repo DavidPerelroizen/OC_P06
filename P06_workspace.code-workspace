@@ -1,7 +1,9 @@
 {
-    "folders": [
-        {
-            "path": "."
-        }
-    ]
+	"folders": [
+		{
+			"name": "OC_P06",
+			"path": "."
+		}
+	],
+	"settings": {}
 }
