@@ -112,13 +112,14 @@ function carrouselManager(url, categoryIndex){
                         filmRanking.push(film)
                     };
                 })
-                .then(data => {
+                .then(data => {/*Step6: populate the movies boxes with the film image*/
                     for (let i=0; i < 4; i++){
                         document.getElementById("Category-"+categoryIndex+"-box-"+(i+1)).innerHTML = "<img src="+filmRanking[i].image_url+"><\img>";
                         modalManagement(filmRanking[i].url, categoryIndex, i+1); 
                     }
                 })
                 .then(data => {
+                    /*Step7: set-up the arrows behavior and the adapting of the content of each movie box at each click*/
                     let j = 0;
                     let arrowRight = document.getElementById("Category-"+categoryIndex+"-arrow-right");
                     let arrowLeft = document.getElementById("Category-"+categoryIndex+"-arrow-left");
